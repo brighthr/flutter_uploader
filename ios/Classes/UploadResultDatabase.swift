@@ -39,7 +39,8 @@ class UploadResultDatabase: UploaderDelegate {
     func uploadEnqueued(taskId: String, tag: String?) {
         results.append([
             Key.taskId: taskId,
-            Key.status: UploadTaskStatus.enqueue.rawValue
+            Key.status: UploadTaskStatus.enqueue.rawValue,
+            Key.tag: tag
         ])
 
         guard let url = resultsPListURL else { return }
