@@ -85,14 +85,15 @@ class FlutterUploader {
     final headers = map['headers'] != null
         ? Map<String, dynamic>.from(map['headers'])
         : <String, dynamic>{};
+    String? tag = map['tag'];
 
     return UploadTaskResponse(
-      taskId: id,
-      status: UploadTaskStatus.from(status),
-      statusCode: statusCode,
-      headers: headers,
-      response: message,
-    );
+        taskId: id,
+        status: UploadTaskStatus.from(status),
+        statusCode: statusCode,
+        headers: headers,
+        response: message,
+        tag: tag);
   }
 
   /// Enqueues a new upload task described by [upload].

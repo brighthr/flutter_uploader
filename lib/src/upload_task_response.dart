@@ -19,26 +19,23 @@ class UploadTaskResponse extends Equatable {
   /// Response headers.
   final Map<String, dynamic>? headers;
 
+  /// The tag value supplied when enqueing this upload.
+  final String? tag;
+
   /// Default constructor.
-  UploadTaskResponse({
-    required this.taskId,
-    this.response,
-    this.statusCode,
-    this.status,
-    this.headers,
-  });
+  UploadTaskResponse(
+      {required this.taskId,
+      this.response,
+      this.statusCode,
+      this.status,
+      this.headers,
+      this.tag});
 
   @override
   bool get stringify => true;
 
   @override
   List<Object?> get props {
-    return [
-      taskId,
-      response,
-      statusCode,
-      status,
-      headers,
-    ];
+    return [taskId, response, statusCode, status, headers, tag];
   }
 }
