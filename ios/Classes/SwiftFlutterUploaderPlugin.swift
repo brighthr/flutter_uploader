@@ -226,7 +226,7 @@ public class SwiftFlutterUploaderPlugin: NSObject, FlutterPlugin {
             }
         }
 
-        completionHandler(self.urlSessionUploader.enqueueUploadTask(request as URLRequest, path: file.path, wifiOnly: !allowCellular), nil)
+        completionHandler(self.urlSessionUploader.enqueueUploadTask(request as URLRequest, path: file.path, wifiOnly: !allowCellular, tag: tag), nil)
     }
 
     private func uploadTaskWithURLWithCompletion(
@@ -303,7 +303,7 @@ public class SwiftFlutterUploaderPlugin: NSObject, FlutterPlugin {
             return
         }
 
-        self.makeRequest(path, url, method, headers, formData.contentType, formData.contentLength, allowCellular: allowCellular, completion: { (task, error) in
+        self.makeRequest(path, url, method, headers, formData.contentType, formData.contentLength, allowCellular: allowCellular, tag: tag, completion: { (task, error) in
             completionHandler(task, error)
         })
     }
@@ -316,6 +316,7 @@ public class SwiftFlutterUploaderPlugin: NSObject, FlutterPlugin {
         _ contentType: String,
         _ contentLength: UInt64,
         allowCellular: Bool,
+        tag: String?,
         completion completionHandler: (URLSessionUploadTask?, FlutterError?) -> Void) {
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = method
@@ -338,7 +339,7 @@ public class SwiftFlutterUploaderPlugin: NSObject, FlutterPlugin {
             return
         }
 
-        completionHandler(urlSessionUploader.enqueueUploadTask(request as URLRequest, path: path, wifiOnly: !allowCellular), nil)
+        completionHandler(urlSessionUploader.enqueueUploadTask(request as URLRequest, path: path, wifiOnly: !allowCellular, tag: tag), nil)
     }
 }
 

@@ -45,7 +45,7 @@ class URLSessionUploader: NSObject {
         delegates.append(delegate)
     }
 
-    func enqueueUploadTask(_ request: URLRequest, path: String, wifiOnly: Bool) -> URLSessionUploadTask? {
+    func enqueueUploadTask(_ request: URLRequest, path: String, wifiOnly: Bool, tag: String?) -> URLSessionUploadTask? {
         guard let session = self.session,
               let wifiSession = self.wifiSession else {
             return nil
