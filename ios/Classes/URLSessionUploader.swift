@@ -62,7 +62,7 @@ class URLSessionUploader: NSObject {
 
         let taskId = identifierForTask(uploadTask)
 
-        delegates.uploadEnqueued(taskId: taskId)
+        delegates.uploadEnqueued(taskId: taskId, tag: tag)
 
         uploadTask.resume()
 

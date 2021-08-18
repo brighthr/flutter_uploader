@@ -8,7 +8,7 @@
 import Foundation
 
 protocol UploaderDelegate {
-    func uploadEnqueued(taskId: String)
+    func uploadEnqueued(taskId: String, tag: String?)
 
     func uploadProgressed(taskId: String, inStatus: UploadTaskStatus, progress: Int)
 
@@ -18,9 +18,9 @@ protocol UploaderDelegate {
 }
 
 extension Array: UploaderDelegate where Element == UploaderDelegate {
-    func uploadEnqueued(taskId: String) {
+    func uploadEnqueued(taskId: String, tag: String?) {
         forEach { (delegate) in
-            delegate.uploadEnqueued(taskId: taskId)
+            delegate.uploadEnqueued(taskId: taskId, tag: tag)
         }
     }
 

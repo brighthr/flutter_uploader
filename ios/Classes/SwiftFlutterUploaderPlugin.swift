@@ -362,7 +362,7 @@ extension SwiftFlutterUploaderPlugin {
 }
 
 extension SwiftFlutterUploaderPlugin: UploaderDelegate {
-    func uploadEnqueued(taskId: String) {
+    func uploadEnqueued(taskId: String, tag: String?) {
         resultHandler.add(taskId, [
             Key.taskId: taskId,
             Key.status: UploadTaskStatus.enqueue.rawValue
