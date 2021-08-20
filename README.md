@@ -1,4 +1,4 @@
-## Forked for use by the [Consultant Visits](https://github.com/brighthr/ConsultantVisits.Mobile) application.
+This repository was originally forked for use by the [Consultant Visits](https://github.com/brighthr/ConsultantVisits.Mobile) application.  However this is no longer necessary. The fork was originally made to address a limitation regarding upload status updates in the original repository. This limitation has now been circumvented in the dart layer of the application. This work was carried out as part of [CV-641](https://brighthr.atlassian.net/browse/CV-641).
 
 [![Flutter Community: flutter_uploader](https://fluttercommunity.dev/_github/header/flutter_uploader)](https://github.com/fluttercommunity/community)
 
